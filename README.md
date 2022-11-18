@@ -1,31 +1,10 @@
-## RSA Factoring Challenge 
-- HTTPS uses Secure Socket Layer to encrypt data that is transferred between client and server. SSL uses the RSA algorithm, an asymmetric encryption technology. The precise details of how the algorithm works is complex, but basically it leverages the fact that whilst multiplying two large prime numbers together is easy, factoring the result back into the constituent primes is very, very hard. How all SSL/RSA encryption works is:
+RSA (Rivest–Shamir–Adleman) is a public-key cryptosystem that is widely used for secure data transmission. It is also one of the oldest. The acronym "RSA" comes from the surnames of Ron Rivest, Adi Shamir and Leonard Adleman, who publicly described the algorithm in 1977. An equivalent system was developed secretly in 1973 at GCHQ (the British signals intelligence agency) by the English mathematician Clifford Cocks. That system was declassified in 1997.[2]
 
-- The server generates two large prime numbers, and multiplies them together. This is called the "public key". This key is made available to any client which wishes to transmit data securely to the server. The client uses this "public key" to encrypt data it wishes to send. Now because this is an asymmetric algorithm, the public key cannot be used to decrypt the transmitted data, only encrypt it. In order to decrypt, you need the original prime numbers, and only the server has these (the "private key"). On receiving the encrypted data, the server uses its private key to decrypt the transmission.
+In a public-key cryptosystem, the encryption key is public and distinct from the decryption key, which is kept secret (private). An RSA user creates and publishes a public key based on two large prime numbers, along with an auxiliary value. The prime numbers are kept secret. Messages can be encrypted by anyone, via the public key, but can only be decoded by someone who knows the prime numbers.[1]
 
-- In the case of you browsing the web, your browser gives the server its public key. The server uses this key to encrypt data to be sent to your browser, which then uses its private key to decrypt.
+The security of RSA relies on the practical difficulty of factoring the product of two large prime numbers, the "factoring problem". Breaking RSA encryption is known as the RSA problem. Whether it is as difficult as the factoring problem is an open question.[3] There are no published methods to defeat the system if a large enough key is used.
 
-- So yes all data transmitted to/from server over HTTPs is encrypted  and encrypted well. Typical SSL implementations use 128 or 256 digits for their keys. To break this you need a truly vast amount of computing resources.
-
-## Tasks :page_with_curl:
-
-* **0. Factorize all the things!**
-Factorize as many numbers as possible into a product of two smaller numbers.
-
-- Usage: factors <file>
-    - where <file> is a file containing natural numbers to factor.
-    - One number per line
-    - You can assume that all lines will be valid natural numbers greater than 1
-    - You can assume that there will be no empy line, and no space before and after the valid number
-    - The file will always end with a new line
-- Output format: n=p*q
-    - one factorization per line
-    - p and q don’t have to be prime numbers
-    - See example
-- You can work on the numbers of the file in the order of your choice
-- Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-- Time limit: Your program will be killed after 5 seconds if it hasn’t finish
-- Push all your scripts, source code, etc… to your repository
+RSA is a relatively slow algorithm. Because of this, it is not commonly used to directly encrypt user data. More often, RSA is used to transmit shared keys for symmetric-key cryptography, which are then used for bulk encryption–decryption.
     - we will only run your executable factors
 
 * **1. RSA Factoring Challenge**
